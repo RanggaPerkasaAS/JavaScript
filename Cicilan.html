@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cicilan mu</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- load jquery and bootstrap -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script type="text/javascript">
+    cicil = () => {
+        let nominal = document.getElementById('nominal').value;
+        let periode = document.getElementById('periode').value;
+        let bunga = document.getElementById('bunga').value;
+        let pbln = nominal / periode;
+        let bung = (nominal / 100 * bunga); 
+        let cicilan = (pbln + bung );
+
+        document.getElementById('cicilan').value = "Rp " + cicilan;
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="card col-sm-4">
+            <div class="card-header">
+                <h3>CICILAN MU!!!!!!!</h3>
+            </div>
+            <div class="card-body"> 
+                Nominal 
+                <input type="number" id="nominal" class="form-control">
+                Periode
+                <select id="periode" class="form-control">
+                    <option value="12">12</option>
+                    <option value="24">24</option>
+                    <option value="36">36</option>
+                </select>
+                Bunga (%) perbulan
+                <input type="number" id="bunga" class="form-control">
+                <button type="button" class="btn btn-info btn-block" onclick="cicil()">Hitung</button>
+                Hasil 
+                <input type="text" id="cicilan" class="form-control" readonly>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
